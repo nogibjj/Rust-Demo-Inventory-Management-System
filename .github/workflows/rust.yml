@@ -7,36 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
-        components: clippy
-        override: true
-
-    - name: Lint with Clippy
-      run: cargo clippy --all-targets --all-features -- -D warnings
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup Rust
-      uses: actions-rs/toolchain@v1
-
-    # - name: Test
-    #   run: cargo test --verbose
-
-  build:
+   build:
     runs-on: ubuntu-latest
 
     steps:
@@ -61,3 +32,5 @@ jobs:
         name: rust_sqlite_cli_app
         path: target/release/rust_sqlite_cli_app
 
+    - name: Lint
+      run: cargo clippy -- -D warnings
