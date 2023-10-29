@@ -36,22 +36,7 @@ This project aims to develop a mini inventory management system that efficiently
 ## Project deliverables:
 
 ### Structure
-rust_sqlite_cli_app/
-├── Cargo.toml
-├── Cargo.lock 
-└── src/
-    ├── main.rs
-    ├── models/
-    │   ├── mod.rs
-    │   ├── product.rs
-    │   └── category.rs
-    ├── db/
-    │   ├── mod.rs
-    │   ├── conn.rs
-    │   └── crud.rs
-    └── cli/
-        ├── mod.rs
-        └── commands.rs
+![struct](struct.png)
 
 ### How it all works together:
 1. main.rs is responsible for initializing the application. It'll call the necessary functions to establish a connection to the database, set up tables, and initialize the CLI for user input.
