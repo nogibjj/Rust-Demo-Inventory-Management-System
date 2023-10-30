@@ -22,7 +22,7 @@ jobs:
         override: true
 
     - name: Build
-      run: |
+      run: 
         cargo build --release
         strip target/release/rust_sqlite_cli_app
 

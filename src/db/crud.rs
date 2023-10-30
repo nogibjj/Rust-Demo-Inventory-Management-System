@@ -9,8 +9,6 @@ pub fn initialize_database(conn: &Connection) -> Result<()> {
         )",
         params![],
     )?;
-    Ok(())
-
 
     conn.execute(
         "CREATE TABLE IF NOT EXISTS products (
@@ -26,37 +24,37 @@ pub fn initialize_database(conn: &Connection) -> Result<()> {
 
     Ok(())
 }
-
+//add a product to the database
 pub fn add_product(conn: &Connection, product: &Product) -> Result<usize> {
     conn.execute(
         "INSERT INTO products (name, price, stock, category_name) VALUES (?1, ?2, ?3, ?4)",
         params![product.name, product.price, product.stock, product.category_name],
     )
 }
-
+//add a category to the database
 pub fn add_category(conn: &Connection, category: &Category) -> Result<usize> {
     conn.execute(
         "INSERT INTO category (category_name) VALUES (?1)",
         params![category.category_name],
     )
 }
-
+//update a product in the database
 pub fn update_product(conn: &Connection, product: &Product) -> Result<usize> {
     conn.execute(
-        "UPDATE products SET name = ?1, price = ?2, stock = ?3, category_name = ?4 WHERE id = ?5",
+        "UPDATE products SET name = ?1, price = ?2, stock = ?3, category_id = ?4 WHERE id = ?5",
         params![product.name, product.price, product.stock, product.category_name, product.id],
     )
 }
-
+//delete a product from the database
 pub fn delete_product(conn: &Connection, product_id: i32) -> Result<usize> {
     conn.execute(
         "DELETE FROM products WHERE id = ?1",
         params![product_id],
     )
 }
-
+//list all products in the database
 pub fn list_categories(conn: &Connection) -> Result<Vec<Category>> {
-    let mut stmt = conn.prepare("SELECT category_id, category_name FROM category")?;
+    let mut stmt = conn.prepare("SELECT category_id, name FROM category")?;
     let category_iter = stmt.query_map(params![], |row| {
         Ok(Category {
             category_id: row.get(0)?,

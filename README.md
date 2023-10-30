@@ -33,6 +33,8 @@ This project aims to develop a mini inventory management system that efficiently
 * Command Line Interface (CLI): A simple yet effective command-line interface that allows users to perform all functionalities by entering specific commands.
 * Data Display: Represent data in a neat tabular format for easy readability.
 
+## Github Copilot
+
 ## Project deliverables:
 
 ### Structure
@@ -41,13 +43,13 @@ This project aims to develop a mini inventory management system that efficiently
 ### How it all works together:
 1. main.rs is responsible for initializing the application. It'll call the necessary functions to establish a connection to the database, set up tables, and initialize the CLI for user input.
 
-2. models are the core data structures of your application. They define what a Product and Category look like.
+2. models are the core data structures of the application. They define what a Product and Category look like.
 
 3. db is where all the database interaction happens. If you need to query the database or modify it in any way, the functions here will handle that.
 
-4. cli is your user interface. When the user types commands, this module processes the input and calls the relevant functions from the db module.
+4. cli is the user interface. When you type commands, this module processes the input and calls the relevant functions from the db module.
 
-This structure allows you to have a clear separation of concerns. Each module is responsible for its domain, making it easier to debug, modify, or expand the application in the future.
+This structure allows for a clear separation of concerns. Each module is responsible for its domain, making it easier to debug, modify, or expand the application in the future.
 
 ## CLI Commands Usage for Mini Inventory System
 1. Initialization: When you run the program, it initializes the SQLite database and tables if they don't already exist. You'll then be presented with a prompt to enter commands.

@@ -1,4 +1,5 @@
 #[derive(Debug)]
+//create a struct for product
 pub struct Product {
     pub id: i32,
     pub name: String,
