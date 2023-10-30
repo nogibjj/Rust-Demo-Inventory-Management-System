@@ -2,35 +2,36 @@ name: Rust CI
 
 on:
   push:
-    branches: [ master ]
+    branches: ["main"]
   pull_request:
-    branches: [ master ]
+    branches: ["main"]
+  workflow_dispatch:
 
 jobs:
-   build:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Setup Rust
-      uses: actions-rs/toolchain@v1
-      with:
-        toolchain: stable
-        profile: minimal
-        override: true
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
 
-    - name: Build
-      run: 
-        cargo build --release
-        strip target/release/rust_sqlite_cli_app
+      - name: Build
+        run: |
+          cargo build --release
+          strip target/release/rust_sqlite_cli_app
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: rust_sqlite_cli_app
-        path: target/release/rust_sqlite_cli_app
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: rust_sqlite_cli_app
+          path: target/release/rust_sqlite_cli_app
 
-    - name: Lint
-      run: cargo clippy -- -D warnings
+      - name: Lint
+        run: cargo clippy -- -D warnings
