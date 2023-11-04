@@ -83,13 +83,17 @@ This structure allows for a clear separation of concerns. Each module is respons
    The CLI is case-sensitive; ensure you're entering commands exactly as mentioned.
    For any action that requires referencing an existing item (like updating or deleting a product), ensure you have the correct ID. Using the list_products command can help verify this.
 
-### Testing Output
+### Testing Output:
 
 ![Output_Test](test.png)
 
-### Application Output
+### Application Output:
 
 ![Output1](output1.png)
 ![Output](output.png)
+
+### Youtube Link
+
+[Click here](https://youtu.be/Ylxs6TdKvfE)
 
 [def]: https://github.com/nogibjj/oo46_Mini_Proj_W8/actions/workflows/cicd.yml

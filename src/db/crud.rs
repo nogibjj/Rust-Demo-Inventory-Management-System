@@ -54,7 +54,7 @@ pub fn delete_product(conn: &Connection, product_id: i32) -> Result<usize> {
 }
 //list all products in the database
 pub fn list_categories(conn: &Connection) -> Result<Vec<Category>> {
-    let mut stmt = conn.prepare("SELECT category_id, name FROM category")?;
+    let mut stmt = conn.prepare("SELECT category_id, category_name FROM category")?;
     let category_iter = stmt.query_map(params![], |row| {
         Ok(Category {
             category_id: row.get(0)?,
