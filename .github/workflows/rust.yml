@@ -35,3 +35,6 @@ jobs:
 
       - name: Lint
         run: cargo clippy -- -D warnings
+
+      - name: Test
+        run: cargo test -- --nocapture

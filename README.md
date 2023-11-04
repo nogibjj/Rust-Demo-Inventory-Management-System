@@ -83,6 +83,10 @@ This structure allows for a clear separation of concerns. Each module is respons
    The CLI is case-sensitive; ensure you're entering commands exactly as mentioned.
    For any action that requires referencing an existing item (like updating or deleting a product), ensure you have the correct ID. Using the list_products command can help verify this.
 
+### Testing Output
+
+![Output_Test](test.png)
+
 ### Example Output
 
 ![Output1](output1.png)

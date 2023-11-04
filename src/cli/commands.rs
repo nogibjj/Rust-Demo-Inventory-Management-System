@@ -4,7 +4,7 @@ use crate::db::crud;
 use prettytable::{Table, Row, Cell};
 use prettytable::row;
 use prettytable::cell;
-
+//Run the command line interface
 pub fn run_cli(conn: &Connection) {
     loop {
         println!("Enter a command (add_product, list_products, update_product, delete_product, add_category, list_categories, exit):");
@@ -27,14 +27,14 @@ pub fn run_cli(conn: &Connection) {
         }
     }
 }
-
+//Prompt for input
 fn prompt_for_input(prompt: &str) -> String {
     println!("{}", prompt);
     let mut input = String::new();
     std::io::stdin().read_line(&mut input).expect("Failed to read line");
     input.trim().to_string()
 }
-
+//Add a product
 fn handle_add_product(conn: &Connection) {
     let name = prompt_for_input("Enter product name:");
     let price: f64 = prompt_for_input("Enter product price:").parse().expect("Invalid price");
@@ -55,7 +55,7 @@ fn handle_add_product(conn: &Connection) {
     }
 }
 
-
+//Update a product
 fn handle_update_product(conn: &Connection) {
     let id: i32 = prompt_for_input("Enter product ID to update:").parse().expect("Invalid product ID");
     let name = prompt_for_input("Enter new product name:");
@@ -76,7 +76,7 @@ fn handle_update_product(conn: &Connection) {
         Err(e) => println!("Error updating product: {}", e),
     }
 }
-
+//Delete a product
 fn handle_delete_product(conn: &Connection) {
     let id: i32 = prompt_for_input("Enter product ID to delete:").parse().expect("Invalid product ID");
 
@@ -85,7 +85,7 @@ fn handle_delete_product(conn: &Connection) {
         Err(e) => println!("Error deleting product: {}", e),
     }
 }
-
+//Add a category
 fn handle_add_category(conn: &Connection) {
     let category_name = prompt_for_input("Enter category name:");
 
@@ -100,7 +100,7 @@ fn handle_add_category(conn: &Connection) {
     }
 }
 
-
+//Display all products
 fn handle_list_products(conn: &Connection) {
     match crud::list_products(conn) {
         Ok(products) => {
@@ -122,7 +122,7 @@ fn handle_list_products(conn: &Connection) {
         Err(e) => println!("Error listing products: {}", e),
     }
 }
-
+//Display all categories
 fn handle_list_categories(conn: &Connection) {
     match crud::list_categories(conn) {
         Ok(categories) => {
