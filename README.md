@@ -87,7 +87,7 @@ This structure allows for a clear separation of concerns. Each module is respons
 
 ![Output_Test](test.png)
 
-### Example Output
+### Application Output
 
 ![Output1](output1.png)
 ![Output](output.png)
