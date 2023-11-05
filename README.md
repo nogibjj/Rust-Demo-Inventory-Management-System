@@ -94,6 +94,6 @@ This structure allows for a clear separation of concerns. Each module is respons
 
 ### Youtube Link
 
-[Click here](https://youtu.be/Ylxs6TdKvfE)
+[Click here](https://youtu.be/48ylMM8KA0k)
 
 [def]: https://github.com/nogibjj/oo46_Mini_Proj_W8/actions/workflows/cicd.yml
