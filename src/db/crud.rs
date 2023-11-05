@@ -41,7 +41,7 @@ pub fn add_category(conn: &Connection, category: &Category) -> Result<usize> {
 //update a product in the database
 pub fn update_product(conn: &Connection, product: &Product) -> Result<usize> {
     conn.execute(
-        "UPDATE products SET name = ?1, price = ?2, stock = ?3, category_id = ?4 WHERE id = ?5",
+        "UPDATE products SET name = ?1, price = ?2, stock = ?3, category_name = ?4 WHERE id = ?5",
         params![product.name, product.price, product.stock, product.category_name, product.id],
     )
 }
